@@ -1,0 +1,16 @@
+{
+  "name": "discogs-graphql",
+  "version": "1.0.0",
+  "description": "graphql gateway to discogs rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kevin.d.krug@googlemail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.5.0"
+  }
+}
