@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "graphql gateway to discogs rest api",
   "main": "index.js",
+  "type": "module",
+  "module": "esnext",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:local": "nodemon ./src/index.js"
+    "start:local": "nodemon ./src/index.js",
+    "format": "npx prettier --write .",
+    "generate:schema": "NODE_OPTIONS='--inspect' node tasks/get-discogs-schema.js"
   },
   "author": "kevin.d.krug@googlemail.com",
   "license": "ISC",

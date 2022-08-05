@@ -1,0 +1,29 @@
+
+
+ type Images {type:String,uri:String,resource_url:String,uri150:String,width:Int,height:Int}
+
+ type Extraartists {name:String,anv:String,join:String,role:String,tracks:String,id:Int,resource_url:String}
+
+ type Tracklist {position:String,type_:String,title:String,duration:String}
+
+ type Videos {uri:String,title:String,description:String,duration:Int,embed:Boolean}
+
+ type Identifiers {type:String,value:String}
+
+ type Contributors {username:String,resource_url:String}
+
+ type Submitter {username:String,resource_url:String}
+
+ type Rating {count:Int,average:Float}
+
+ type Community {have:Int,want:Int,data_quality:String,status:String,contributors:[Contributors],submitter:Submitter,rating:Rating}
+
+ type Formats {name:String,qty:String,descriptions:[String]}
+
+ type Companies {name:String,catno:String,entity_type:String,entity_type_name:String,id:Int,resource_url:String}
+
+ type Labels {name:String,catno:String,entity_type:String,entity_type_name:String,id:Int,resource_url:String}
+
+ type Artists {name:String,anv:String,join:String,role:String,tracks:String,id:Int,resource_url:String}
+
+ type Release {id:Int,status:String,year:Int,resource_url:String,uri:String,artists_sort:String,data_quality:String,format_quantity:Int,date_added:String,date_changed:String,num_for_sale:Int,lowest_price:Float,master_id:Int,master_url:String,title:String,country:String,released:String,notes:String,released_formatted:String,thumb:String,estimated_weight:Int,blocked_from_sale:Boolean,images:[Images],extraartists:[Extraartists],tracklist:[Tracklist],styles:[String],genres:[String],videos:[Videos],identifiers:[Identifiers],community:Community,formats:[Formats],companies:[Companies],series:[String],labels:[Labels],artists:[Artists]}
