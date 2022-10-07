@@ -5,22 +5,24 @@ import axios from 'axios';
 import { toSchema, toSDLString } from './utils/index.js';
 
 const TEST_RELEASE_ID = '249504';
+const TEST_ARTIST_ID = '108713';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const getReleaseJson = async (id = TEST_RELEASE_ID) => {
-  let res = await axios(`https://api.discogs.com/releases/${id}`, {
+const getJson = async (endpoint, id) => {
+  let res = await axios(`https://api.discogs.com/${endpoint}/${id}`, {
     method: 'GET',
     headers: {
       'User-Agent': 'discogs-graphql/1.0.0',
     },
   });
-
   return res.data;
 };
 
-const releaseJson = await getReleaseJson();
+const artistJson = await getJson('artists', TEST_ARTIST_ID );
+const releaseJson = await getJson('releases', TEST_RELEASE_ID);
 
+const artistSchema = toSchema(artistJson);
 const releaseSchema = toSchema(releaseJson);
 
 const buildDir = __dirname + '/../build';
@@ -29,9 +31,10 @@ if (!fs.existsSync(buildDir)) {
   fs.mkdirSync(buildDir);
 }
 
+const ArtistType = `${toSDLString(artistSchema, 'Artist')}`;
 const ReleaseType = `${toSDLString(releaseSchema, 'Release')}`;
 
-const output = `${ReleaseType}`;
+const output = `${ArtistType}${ReleaseType}`;
 
 fs.writeFile(buildDir + '/types.graphql', output, (err) => {
   if (err) {

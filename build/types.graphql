@@ -1,5 +1,11 @@
 
 
+ type Members {id:Int,name:String,resource_url:String,active:Boolean}
+
+ type Images {type:String,uri:String,resource_url:String,uri150:String,width:Int,height:Int}
+
+ type Artist {name:String,id:Int,resource_url:String,uri:String,releases_url:String,profile:String,data_quality:String,members:[Members],namevariations:[String],urls:[String],images:[Images]}
+
  type Images {type:String,uri:String,resource_url:String,uri150:String,width:Int,height:Int}
 
  type Extraartists {name:String,anv:String,join:String,role:String,tracks:String,id:Int,resource_url:String}

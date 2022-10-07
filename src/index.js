@@ -18,6 +18,7 @@ schema {
 
 type RootQuery {
   release: Release
+  artist: Artist
 }`
 ;
 
@@ -25,6 +26,9 @@ const resolvers = {
   RootQuery: {
     release: async(parentValue, {id = '249504'}, context) => {
       return discogsService.get(`releases/${id}`)
+    },
+    artist: async(parentValue, {id = '108713'}, context) => {
+      return discogsService.get(`artists/${id}`)
     }
   }
 }
